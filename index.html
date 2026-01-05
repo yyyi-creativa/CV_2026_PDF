@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CV de Yi Saint-Jour. Creative Project Lead y Diseñadora Multidisciplinaria con visión 360°. Gestión estratégica y ejecución técnica.">
     <title>CV - Javiera (Yi) Saint-Jour | 2026</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,359 +11,230 @@
 
     <style>
         :root {
-            /* Estilo Editorial */
             --bg-color: #FFFFFF;
             --text-color: #111111;
-            --accent-color: #555555; 
+            --accent-color: #444444; 
             --line-color: #000000;
             --font-main: 'Inter', Helvetica, Arial, sans-serif;
         }
 
-        /* RESET */
+        /* RESET & BASE - Tamaño fuente 14px para optimizar espacio vertical */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html { font-size: 14px; } 
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-main);
-            line-height: 1.5;
+            line-height: 1.45; /* Interlineado ligeramente más compacto */
             -webkit-font-smoothing: antialiased;
             margin: 0;
-            display: block; 
         }
 
         /* --- CONTENIDO PRINCIPAL --- */
         main {
-            max-width: 1000px; 
+            /* Ancho expandido para usar mejor la hoja */
+            max-width: 100%; 
             margin: 0 auto;
-            padding: 60px 50px; 
+            /* Padding reducido para ganar espacio lateral */
+            padding: 40px 40px; 
             position: relative; 
         }
 
-        /* HEADER */
-        header { margin-bottom: 60px; }
+        /* HEADER COMPACTO */
+        header { 
+            margin-bottom: 30px; /* Menos aire abajo del header */
+            border-bottom: 2px solid var(--line-color);
+            padding-bottom: 20px;
+        }
 
         h1 {
-            font-size: 3rem;
-            font-weight: 600;
+            font-size: 2.8rem;
+            font-weight: 700;
             letter-spacing: -0.03em;
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-transform: uppercase;
         }
 
         .role {
             font-size: 1.1rem;
-            font-weight: 400;
+            font-weight: 500;
             color: var(--accent-color);
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         /* META DATA (Info + Navegación) */
         .header-meta {
             display: flex;
-            justify-content: space-between; /* Info a la izq, Menú a la der */
-            align-items: flex-start;
+            justify-content: space-between;
+            align-items: flex-end;
             flex-wrap: wrap;
-            gap: 30px;
-            font-size: 0.9rem;
-            padding-top: 20px;
-            border-top: 2px solid var(--line-color);
+            gap: 20px;
+            font-size: 0.95rem;
         }
 
         .contact-links {
             display: flex;
-            flex-direction: column; /* Apilados verticalmente para orden */
-            gap: 5px;
-            color: var(--accent-color);
+            flex-wrap: wrap;
+            gap: 15px; /* Espacio horizontal entre datos */
+            color: var(--text-color);
+            font-weight: 500;
         }
         
-        /* Enlaces generales */
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .contact-links a:hover { text-decoration: underline; color: #000; }
-
-        /* NAVEGACIÓN INTEGRADA */
-        .header-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 0;
-            margin: 0;
-        }
-
-        .header-nav a {
-            color: var(--accent-color);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            padding-bottom: 2px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .header-nav a:hover, .header-nav a.active {
-            color: #000;
-            border-bottom: 2px solid #000;
-        }
+        a { color: var(--text-color); text-decoration: none; }
+        .contact-links a:hover { text-decoration: underline; }
 
         /* SECCIONES */
         section {
             padding-top: 20px;
-            margin-bottom: 60px;
-            border-top: 1px solid #eee; /* Separador sutil */
+            margin-bottom: 30px; /* Margen reducido entre secciones */
+            border-top: 1px solid #ddd;
             display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 40px;
+            /* Columna izq más angosta (140px) para dar más espacio al texto (1fr) */
+            grid-template-columns: 140px 1fr;
+            gap: 30px;
+            
+            /* EVITAR CORTES EN PDF */
+            page-break-inside: avoid; 
         }
 
         h2 {
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin: 0;
-            /* Quitamos sticky para evitar errores en PDF */
-            position: static; 
+            color: #000;
         }
 
-        h2::before {
-            content: "✶ ";
-            color: var(--text-color);
-        }
+        h2::before { content: "■ "; color: var(--text-color); font-size: 0.8em; margin-right: 5px;}
 
         .content {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 25px; /* Menos espacio entre items internos */
         }
 
-        /* TEXTOS & PERFIL */
+        /* PERFIL */
+        .profile-text h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
         .bio-text p {
-            font-size: 1.25rem;
+            font-size: 1.05rem; /* Texto levemente más grande para lectura fácil */
             font-weight: 400;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            color: #333;
-            max-width: 100%; 
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: #222;
+            text-align: justify; /* Justificado para orden visual */
         }
-        
-        .profile-text h3 {
-             font-size: 1.4rem;
-             margin-bottom: 15px;
-             font-weight: 600;
-        }
-
         .highlight {
             font-weight: 500;
-            color: #000;
-            padding-left: 20px;
-            border-left: 3px solid var(--line-color);
+            background: #f4f4f4;
+            padding: 10px 15px;
+            border-left: 3px solid #000;
+            border-radius: 0 4px 4px 0;
         }
 
-        /* ENTRADAS (Experiencia / Formación) */
+        /* ENTRADAS (Experiencia) */
         .entry {
             display: grid;
-            grid-template-columns: 1fr 140px;
-            gap: 30px; 
+            grid-template-columns: 1fr 120px; /* Fecha alineada a la derecha */
+            gap: 20px; 
+            
+            /* CLAVE PARA PDF: Evita que una experiencia se parta en dos hojas */
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         .entry-main h3 {
             font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 2px;
         }
 
         .institution {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--accent-color);
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
             display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
-        .description {
-            font-size: 0.95rem;
-            color: #444;
-            margin-top: 10px;
-            line-height: 1.5;
-            max-width: 100%; 
-        }
-        
-        .description ul { padding-left: 18px; margin-top: 8px; }
-        .description li { margin-bottom: 5px; }
+        .description ul { padding-left: 16px; margin-top: 5px; }
+        .description li { margin-bottom: 3px; font-size: 0.95rem; color: #333; }
+        .description p { margin-bottom: 5px; font-size: 0.95rem; }
 
         .date {
             text-align: right;
             font-size: 0.85rem;
-            font-weight: 500;
-            font-feature-settings: "tnum";
-            color: var(--accent-color);
-            white-space: pre-line; 
+            font-weight: 600;
+            color: #000;
+            white-space: nowrap; 
         }
 
-        /* COMPETENCIAS GRID */
+        /* COMPETENCIAS (3 Columnas para ahorrar espacio vertical) */
         .competencies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px;
         }
         
         .comp-category h3 {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-weight: 600;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 8px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
         }
+        .comp-list li { font-size: 0.9rem; margin-bottom: 4px; }
 
-        .comp-list { list-style: none; padding: 0; }
-        .comp-list li {
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-            color: #222;
-        }
-
-        /* TOOLKIT GRID */
+        /* TOOLKIT (Horizontal para ahorrar espacio) */
         .toolkit-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        .toolkit-level h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .toolkit-desc {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .tool-items {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            list-style: none;
-            padding: 0;
+            flex-direction: column;
+            gap: 15px;
         }
-
+        .toolkit-level { display: flex; align-items: baseline; gap: 15px; flex-wrap: wrap; }
+        .toolkit-level h3 { font-size: 0.9rem; min-width: 150px; }
+        .tool-items { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; }
         .tool-items li {
-            font-size: 0.9rem;
-            color: #333;
-            background-color: #f4f4f4;
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: 1px solid #eee;
+            font-size: 0.85rem;
+            background: #eee;
+            padding: 3px 8px;
+            border-radius: 3px;
         }
 
         /* FOOTER */
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
             text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .ai-credit {
             font-size: 0.8rem;
-            opacity: 0.6;
+            color: #777;
         }
 
-        /* --- BOTÓN VOLVER ARRIBA --- */
-        #scrollTopBtn {
-            display: none; 
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: var(--text-color);
-            color: white;
-            cursor: pointer;
-            padding: 0;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+        /* MEDIA QUERIES PARA PANTALLA */
+        @media (max-width: 768px) {
+            section { grid-template-columns: 1fr; gap: 10px; }
+            .entry { grid-template-columns: 1fr; }
+            .date { text-align: left; margin-bottom: 5px; opacity: 0.7; }
+            .competencies-grid { grid-template-columns: 1fr; }
         }
 
-        #scrollTopBtn:hover {
-            background-color: #333;
-            transform: translateY(-5px);
-        }
-        
-        .arrow-up {
-            border: solid #FFFFFF;
-            border-width: 0 2px 2px 0;
-            display: inline-block;
-            padding: 5px;
-            transform: rotate(-135deg);
-            margin-top: 6px;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            main { padding: 40px 25px; }
-
-            h1 { font-size: 2.5rem; }
-
-            /* En móvil apilamos info y menú */
-            .header-meta { 
-                flex-direction: column; 
-                gap: 20px;
-            }
-            
-            .contact-links { flex-direction: row; flex-wrap: wrap; gap: 15px; }
-
-            section {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            h2 {
-                padding-bottom: 10px;
-                border-bottom: 1px solid #eee;
-                margin-bottom: 20px;
-            }
-
-            .entry {
-                grid-template-columns: 1fr;
-                gap: 5px;
-            }
-            .entry-main { order: 2; }
-            .date { 
-                order: 1; 
-                text-align: left; 
-                opacity: 0.8;
-                margin-bottom: 5px;
-            }
-        }
-        
-        /* IMPRESIÓN / PDF */
+        /* AJUSTES ESPECÍFICOS PARA IMPRESIÓN / PDF */
         @media print {
-            body { background: white; }
-            #scrollTopBtn { display: none !important; }
+            @page {
+                size: A4;
+                margin: 1.5cm 1cm; /* Márgenes físicos de la hoja */
+            }
+            body { background: white; -webkit-print-color-adjust: exact; }
+            main { padding: 0; width: 100%; max-width: 100%; }
+            /* Asegura que los links no salgan azules o subrayados feos */
             a { text-decoration: none; color: #000; }
-            /* Evitar cortes feos en las páginas */
-            .entry, section { page-break-inside: avoid; }
+            /* Ocultar elementos innecesarios */
+            #scrollTopBtn { display: none; }
         }
     </style>
 </head>
@@ -377,333 +247,70 @@
             <div class="role">Creative Project Lead | Comunicación Digital y Diseño 360°</div>
             
             <div class="header-meta">
-                
                 <div class="contact-links">
                     <a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn: /yyyi</a>
-                    <a href="https://www.behance.net/yyyi" target="_blank">Portafolio: Behance</a>
+                    <span>•</span>
+                    <a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn</a>
+                    <span>•</span>
+                    <a href="https://www.behance.net/yyyi" target="_blank">Portafolio</a>
+                    <span>•</span>
                     <a href="https://yyyi-creativa.github.io/exploracion_IA/" target="_blank">Exploración IA</a>
                 </div>
-
-                <nav class="header-nav">
-                    <ul>
-                        <li><a href="#perfil" class="nav-link">Perfil</a></li>
-                        <li><a href="#competencias" class="nav-link">Skills</a></li>
-                        <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
-                        <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
-                        <li><a href="#docencia" class="nav-link">Docencia</a></li>
-                        <li><a href="#formacion" class="nav-link">Formación</a></li>
-                    </ul>
-                </nav>
-
             </div>
         </header>
 
         <section id="perfil">
             <h2>Perfil</h2>
             <div class="content bio-text">
-                    <div class="profile-text">
-                        <h3>Creative Project Lead con visión 360°</h3>
-                        <p>
-                            Integro la gestión estratégica con la ejecución técnica en <strong>diseño digital, redacción creativa y narrativa transmedia</strong>. 
-                            Lidero ecosistemas de comunicación visual y editorial, asegurando coherencia de marca y optimización de flujos mediante el uso de nuevas tecnologías e IA.
-                        </p>
-                    </div>
+                <div class="profile-text">
+                    <h3>Creative Project Lead con visión 360°</h3>
+                    <p>
+                        Integro la gestión estratégica con la ejecución técnica en <strong>diseño digital, redacción creativa y narrativa transmedia</strong>. 
+                        Lidero ecosistemas de comunicación visual y editorial, asegurando coherencia de marca y optimización de flujos mediante nuevas tecnologías e IA.
+                    </p>
+                </div>
                 <p>
-                    Egresada con distinción máxima como Diseñadora de la Universidad de Chile, mi metodología integra todo el proceso de comunicación: desde la redacción y curaduría de contenidos estratégicos, hasta la dirección de arte y producción visual. Tengo experiencia traduciendo temas complejos (tecnología/IA/cultura) en narrativas digitales que conectan tanto con audiencias masivas como con nichos especializados.
+                    Egresada con distinción máxima como Diseñadora de la Universidad de Chile. Mi metodología integra todo el proceso de comunicación: desde la redacción y curaduría de contenidos estratégicos, hasta la dirección de arte. Poseo experiencia traduciendo temas complejos (tecnología, IA y cultura) en narrativas digitales accesibles que conectan tanto con audiencias masivas como especializadas.
                 </p>
-                <p class="highlight">
-                    Mi valor principal es la profundidad: trabajo bajo un análisis riguroso para asegurar que cada pieza —ya sea impresa o digital— no sea meramente estética, sino que responda a una coherencia narrativa y a un objetivo sólido.
-                </p>
+                <div class="highlight">
+                    Mi valor principal es la profundidad: trabajo bajo un análisis riguroso para asegurar que cada pieza —impresa o digital— responda a una coherencia narrativa y a un objetivo sólido.
+                </div>
             </div>
         </section>
 
         <section id="competencias">
-            <h2>Competencias Clave</h2>
+            <h2>Skills</h2>
             <div class="content">
                 <div class="competencies-grid">
                     
                     <div class="comp-category">
-                        <h3>Gestión y Estrategia</h3>
+                        <h3>Gestión & Estrategia</h3>
                         <ul class="comp-list">
-                            <li>Gestión de Contenido para Redes Sociales</li>
-                            <li>Dirección de Arte y Conceptualización</li>
-                            <li>Estrategia de Comunicación Visual</li>
-                            <li>Redacción Corporativa y Storytelling</li>
+                            <li>Gestión de Contenido RRSS</li>
+                            <li>Dirección de Arte</li>
+                            <li>Estrategia Comunicación Visual</li>
+                            <li>Redacción & Storytelling</li>
                             <li>Design Project Management</li>
                         </ul>
                     </div>
                     
                     <div class="comp-category">
-                        <h3>Dominio Técnico y Creativo</h3>
+                        <h3>Técnico & Creativo</h3>
                         <ul class="comp-list">
-                            <li>Diseño Digital y Social Media</li>
-                            <li>Branding e Identidad Visual</li>
-                            <li>Herramientas de IA Generativa</li>
-                            <li>Diseño Multimedia (Video/Audio)</li>
-                            <li>Motion Graphics y Animación</li>
-                            <li>Fotografía y Retoque Digital</li>
-                            <li>Ilustración 2D y 3D</li>
+                            <li>Diseño Digital & Social Media</li>
+                            <li>Branding & Identidad</li>
+                            <li>IA Generativa (Txt/Img)</li>
+                            <li>Motion Graphics & Video</li>
+                            <li>Fotografía & Retoque</li>
                         </ul>
                     </div>
 
                     <div class="comp-category">
                         <h3>Metodología</h3>
                         <ul class="comp-list">
-                            <li>Design Thinking y Procesos Iterativos</li>  
-                            <li>Visión Sistémica (Procesos completos)</li>
-                            <li>Análisis Riguroso y Criterio Estético</li>
-                            <li>Resolución de Problemas</li>
-                            <li>Adaptabilidad y Autonomía</li>
+                            <li>Design Thinking</li>  
+                            <li>Visión Sistémica</li>
+                            <li>Análisis Riguroso</li>
+                            <li>Resolución Problemas</li>
+                            <li>Adaptabilidad</li>
                         </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="toolkit">
-            <h2>Toolkit Digital y Software</h2>
-            <div class="content">
-                <div class="toolkit-grid">
-                    
-                    <div class="toolkit-level">
-                        <h3>Nivel Avanzado | Adobe Creative Suite</h3>
-                        <span class="toolkit-desc">Dominio para flujos de trabajo profesionales en diseño y postproducción.</span>
-                        <ul class="tool-items">
-                            <li>✦ Photoshop</li>
-                            <li>✦ Illustrator</li>
-                            <li>✦ InDesign</li>
-                            <li>✦ After Effects</li>
-                            <li>✦ Premiere Pro</li>
-                        </ul>
-                    </div>
-
-                    <div class="toolkit-level">
-                        <h3>Nivel Intermedio | Creación Específica</h3>
-                        <span class="toolkit-desc">Herramientas para ilustración, modelado móvil y edición ágil.</span>
-                        <ul class="tool-items">
-                            <li>✦ Canva (Presentaciones)</li>
-                            <li>✦ Procreate (Ilustración)</li>
-                            <li>✦ Nomad Sculpt (3D iPad)</li>
-                            <li>✦ CapCut (Social Media)</li>
-                        </ul>
-                    </div>
-
-                    <div class="toolkit-level">
-                        <h3>Nivel Básico | Exploración y Prototipado</h3>
-                        <span class="toolkit-desc">Conocimientos funcionales para integración de nuevos medios.</span>
-                        <ul class="tool-items">
-                            <li>✦ Unreal Engine (Entornos 3D)</li>
-                            <li>✦ Figma (Diseño UI/UX)</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="experiencia">
-            <h2>Experiencia Profesional</h2>
-            <div class="content">
-                
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Design Project Manager</h3>
-                        <span class="institution">Santiago Design Experience (SDE)</span>
-                        <div class="description">
-                            <ul>
-                            <li><strong>Gestión de Contenidos y Tono de Voz:</strong> Alineación estratégica de contenidos para marcas del sector tecnológico y CX (Sixbell, Be Aware). Definición de pilares de comunicación y adaptación del relato según la personalidad de la marca.</li>
-                            <li><strong>Edición y Curaduría Editorial:</strong> Trabajo colaborativo con periodistas para la redacción de artículos y posts. Responsable de la revisión final, corrección de estilo y alineación de conceptos técnicos a un lenguaje cercano y atractivo para la audiencia.</li>
-                            <li><strong>Estrategia e IA Generativa:</strong> Implementación integral de herramientas de IA para la generación de imágenes y optimización de redacción editorial. Enfoque en agilizar flujos creativos y tiempos de entrega, asegurando siempre una revisión humana exhaustiva para garantizar la precisión técnica, la coherencia visual y la calidad gramatical.</li>
-                            <li><strong>Gestión Estratégica:</strong> Liderazgo y visión global de proyectos creativos, asegurando que el objetivo del cliente se traduzca en una ejecución visual coherente y de alto impacto.</li>
-                            <li><strong>Orquestación de Flujos:</strong> Planificación y validación de entregables, actuando como enlace estratégico entre el cliente y el equipo de diseño.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <span class="date">Jun 2025 – Presente</span>
-                </article>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Lead Designer y Coordinadora Visual (Giras LATAM)</h3>
-                        <span class="institution">Urimusic Entertainment</span>
-                        <div class="description">
-                            <p>Liderazgo integral de campañas visuales y experiencias para giras de artistas de K-pop en Chile, Brasil, México y Perú.</p>
-                            <ul>
-                                <li><strong>Eventos:</strong> Fanmeetings 'IN LOVE' (Hwang In Youp) y 'OUR TIME' (Jung Hae In); Conciertos Dreamcatcher y pH-1.</li>
-                                <li><strong>Diseño 360°:</strong> Desarrollo de ecosistemas completos: campañas digitales, assets para ticketeras, gran formato, señalética y merch oficial.</li>
-                                <li><strong>Coordinación Internacional:</strong> Adaptación de normativas gráficas por país.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <span class="date">Abr 2023 – Mar 2025</span>
-                </article>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Consultora Creativa y Diseñadora Multidisciplinar</h3>
-                        <span class="institution">Profesional Independiente</span>
-                        <div class="description">
-                            <p>Gestión autónoma de identidad visual y contenido para el sector cultural y musical. Desarrollo multidisciplinario (foto, video, ilustración 2D/3D).</p>
-                        </div>
-                    </div>
-                    <span class="date">Jun 2019 – Presente</span>
-                </article>
-
-                <h3 style="margin-top: 20px; font-size: 0.9rem; text-transform: uppercase; color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px;">Proyectos Destacados & Innovación</h3>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Diseñadora AR (Realidad Aumentada)</h3>
-                        <span class="institution">CRTIC - Congreso Futuro</span>
-                        <div class="description">
-                            <p>Diseño y programación de filtros y experiencias inmersivas para la exhibición “SinfonIA Digital”.</p>
-                        </div>
-                    </div>
-                    <span class="date">Dic 2023 – Ene 2024</span>
-                </article>
-                
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Staff de Producción y Montaje</h3>
-                        <span class="institution">Urimusic Entertainment / NoiX Entertainment / Feria IMPRESIONANTE</span>
-                        <div class="description">
-                            <p>Soporte logístico y operativo en eventos masivos: conciertos y feria editorial. Aseguramiento de flujo de experiencia y montaje.</p>
-                        </div>
-                    </div>
-                    <span class="date">2017 – 2024</span>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="docencia">
-            <h2>Docencia y Academia</h2>
-            <div class="content">
-                
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Ayudante de Cátedra y Guía de Proyectos</h3>
-                        <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) - U. de Chile</span>
-                        <div class="description">
-                            <p>Acompañamiento académico a estudiantes de ciclo avanzado en proyectos de diseño, bajo la cátedra del Prof. Rodrigo Dueñas.</p>
-                        </div>
-                    </div>
-                    <span class="date">2023 – 2025</span>
-                </article>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Instructora de Tecnologías Inmersivas (Meta Spark)</h3>
-                        <span class="institution">CRTIC</span>
-                        <div class="description">
-                            <p>Docente del "Programa de Formación en Meta Spark: AR Fundamentals". Capacitación técnica en Realidad Aumentada para industrias creativas.</p>
-                        </div>
-                    </div>
-                    <span class="date">2023</span>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="formacion">
-            <h2>Formación</h2>
-            <div class="content">
-                
-                <h3 style="margin-bottom: 15px; font-size: 0.95rem; color: #777;">ACADÉMICA</h3>
-                
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Diseñadora Gráfica | Licenciada en Diseño</h3>
-                        <span class="institution">Universidad de Chile</span>
-                        <div class="description">Titulada con Distinción Máxima, Mención Gráfica.</div>
-                    </div>
-                    <span class="date">2016 – 2022</span>
-                </article>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Ingeniería Comercial | Estudios de Pregrado</h3>
-                        <span class="institution">Universidad Técnica Federico Santa María</span>
-                        <div class="description">Formación en fundamentos de economía y administración.</div>
-                    </div>
-                    <span class="date">2013 – 2014</span>
-                </article>
-
-                <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 0.95rem; color: #777;">CONTINUA</h3>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Unreal Engine Fundamentals y Meta Spark AR</h3>
-                        <span class="institution">Certificaciones CRTIC</span>
-                    </div>
-                    <span class="date">2023</span>
-                </article>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Gestión de Públicos y Comunidades Culturales</h3>
-                        <span class="institution">Ministerio de las Culturas (MinCAP)</span>
-                    </div>
-                    <span class="date">2022</span>
-                </article>
-
-            </div>
-        </section>
-
-        <footer id="footer">
-            <div class="ai-credit">
-                Sitio desarrollado x Yi con asistencia de IA. 2026
-            </div>
-        </footer>
-
-    </main>
-    
-    <button onclick="topFunction()" id="scrollTopBtn" title="Volver al inicio" aria-label="Volver arriba">
-        <span class="arrow-up"></span>
-    </button>
-
-    <script>
-        // Lógica actualizada para los nuevos enlaces en el header
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-            
-            scrollFunction(); 
-        });
-
-        // BOTÓN VOLVER ARRIBA
-        let mybutton = document.getElementById("scrollTopBtn");
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                mybutton.style.display = "flex";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        function topFunction() {
-            document.body.scrollTop = 0; 
-            document.documentElement.scrollTop = 0; 
-        }
-    </script>
-</body>
-</html>
