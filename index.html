@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    
     <style>
         :root {
             /* Estilo Editorial */
@@ -18,10 +17,7 @@
             --text-color: #111111;
             --accent-color: #555555; 
             --line-color: #000000;
-            --sidebar-bg: #fafafa;
-            --sidebar-border: #eee;
             --font-main: 'Inter', Helvetica, Arial, sans-serif;
-            /* --sidebar-width: 250px; YA NO ES NECESARIA */
         }
 
         /* RESET */
@@ -35,70 +31,11 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             margin: 0;
-            /* CAMBIO: Eliminado display: flex para que sea vertical */
             display: block; 
         }
 
-        /* --- 1. BARRA SUPERIOR (ANTES SIDEBAR) --- */
-        .sidebar {
-            width: 100%; /* Ocupa todo el ancho */
-            height: auto; /* Altura automática según contenido */
-            position: sticky;
-            top: 0;
-            background-color: var(--sidebar-bg); 
-            border-right: none; /* Quitamos borde lateral */
-            border-bottom: 1px solid var(--sidebar-border); /* Agregamos borde inferior */
-            padding: 15px 20px; /* Padding más pequeño para ahorrar espacio vertical */
-            display: flex;
-            justify-content: center; /* Centrar el menú */
-            align-items: center;
-            z-index: 1000; /* Asegurar que quede encima del contenido al hacer scroll */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra sutil para separar */
-        }
-
-        .nav-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex; /* Elementos en horizontal */
-            flex-wrap: wrap; /* Para que baje en pantallas muy pequeñas */
-            gap: 20px; /* Espacio entre items */
-            justify-content: center;
-        }
-
-        .nav-item { margin-bottom: 0; } /* Quitamos margen inferior */
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: block;
-            border-left: none; /* Quitamos borde izquierdo */
-            border-bottom: 2px solid transparent; /* Preparamos borde inferior */
-            padding: 5px 10px; /* Ajuste de padding */
-            font-weight: 400;
-        }
-
-        .nav-link:hover {
-            color: #000;
-            padding-left: 10px; /* Reset del efecto hover anterior */
-            background-color: rgba(0,0,0,0.03); /* Sutil fondo al hover */
-            border-radius: 4px;
-        }
-
-        /* Estado Activo (JS) */
-        .nav-link.active {
-            color: #000;
-            border-left: none; 
-            border-bottom: 2px solid #000; /* Línea negra abajo */
-            padding-left: 10px;
-            font-weight: 600;
-        }
-
-        /* --- 2. CONTENIDO PRINCIPAL --- */
+        /* --- CONTENIDO PRINCIPAL --- */
         main {
-            /* CAMBIO: Max width aumentado para aprovechar el espacio del PDF */
             max-width: 1000px; 
             margin: 0 auto;
             padding: 60px 50px; 
@@ -124,25 +61,23 @@
             margin-bottom: 30px;
         }
 
-        /* META DATA */
+        /* META DATA (Info + Navegación) */
         .header-meta {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Info a la izq, Menú a la der */
+            align-items: flex-start;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
             font-size: 0.9rem;
             padding-top: 20px;
             border-top: 2px solid var(--line-color);
         }
 
-        /* Navegación móvil (oculta en desktop por defecto) */
-        .mobile-nav { display: none; }
-
         .contact-links {
             display: flex;
-            gap: 20px;
+            flex-direction: column; /* Apilados verticalmente para orden */
+            gap: 5px;
             color: var(--accent-color);
-            flex-wrap: wrap;
         }
         
         /* Enlaces generales */
@@ -153,12 +88,36 @@
         }
         .contact-links a:hover { text-decoration: underline; color: #000; }
 
+        /* NAVEGACIÓN INTEGRADA */
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header-nav a {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .header-nav a:hover, .header-nav a.active {
+            color: #000;
+            border-bottom: 2px solid #000;
+        }
+
         /* SECCIONES */
         section {
-            padding-top: 80px; /* Aumentado un poco para compensar la barra sticky */
-            margin-bottom: 80px;
+            padding-top: 20px;
+            margin-bottom: 60px;
             border-top: 1px solid #eee; /* Separador sutil */
-            scroll-margin-top: 80px; /* Importante para que el link no quede tapado por la barra */
             display: grid;
             grid-template-columns: 180px 1fr;
             gap: 40px;
@@ -170,9 +129,8 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin: 0;
-            position: sticky;
-            top: 80px; /* Ajustado para que no choque con la barra de navegación */
-            height: fit-content;
+            /* Quitamos sticky para evitar errores en PDF */
+            position: static; 
         }
 
         h2::before {
@@ -195,6 +153,13 @@
             color: #333;
             max-width: 100%; 
         }
+        
+        .profile-text h3 {
+             font-size: 1.4rem;
+             margin-bottom: 15px;
+             font-weight: 600;
+        }
+
         .highlight {
             font-weight: 500;
             color: #000;
@@ -306,8 +271,8 @@
 
         /* FOOTER */
         footer {
-            margin-top: 100px;
-            padding-top: 40px;
+            margin-top: 60px;
+            padding-top: 20px;
             border-top: 1px solid #333;
             text-align: center;
             color: #666;
@@ -317,19 +282,18 @@
         .ai-credit {
             font-size: 0.8rem;
             opacity: 0.6;
-            margin-top: 20px;
         }
 
         /* --- BOTÓN VOLVER ARRIBA --- */
         #scrollTopBtn {
-            display: none; /* Oculto por defecto */
+            display: none; 
             position: fixed;
             bottom: 40px;
             right: 40px;
             z-index: 99;
             border: none;
             outline: none;
-            background-color: var(--text-color); /* Negro */
+            background-color: var(--text-color);
             color: white;
             cursor: pointer;
             padding: 0;
@@ -339,7 +303,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, background-color 0.2s ease;
+            transition: transform 0.3s ease;
         }
 
         #scrollTopBtn:hover {
@@ -356,36 +320,26 @@
             margin-top: 6px;
         }
 
-        
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            body { 
-                display: block; 
-                padding: 0;
-            }
-
-            /* En móvil la barra superior puede ser muy grande, la ajustamos */
-            .sidebar { 
-                position: relative; /* Ya no sticky en móvil si se prefiere */
-                padding: 10px;
-                flex-direction: column;
-            }
-            
-            .nav-list { gap: 10px; }
-
             main { padding: 40px 25px; }
 
             h1 { font-size: 2.5rem; }
 
+            /* En móvil apilamos info y menú */
+            .header-meta { 
+                flex-direction: column; 
+                gap: 20px;
+            }
+            
+            .contact-links { flex-direction: row; flex-wrap: wrap; gap: 15px; }
+
             section {
                 grid-template-columns: 1fr;
                 gap: 25px;
-                padding-top: 25px;
-                margin-bottom: 50px;
             }
 
             h2 {
-                position: static;
                 padding-bottom: 10px;
                 border-bottom: 1px solid #eee;
                 margin-bottom: 20px;
@@ -402,40 +356,19 @@
                 opacity: 0.8;
                 margin-bottom: 5px;
             }
-
-            .header-meta { gap: 15px; }
-            
-            #scrollTopBtn {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
         }
         
-        /* ESTILOS ESPECÍFICOS PARA IMPRESIÓN / PDF */
+        /* IMPRESIÓN / PDF */
         @media print {
-            .sidebar {
-                position: relative; /* Evita que se repita en cada hoja si el navegador lo intenta */
-                border-bottom: 1px solid #000;
-            }
-            .nav-link { color: #000; }
+            body { background: white; }
             #scrollTopBtn { display: none !important; }
+            a { text-decoration: none; color: #000; }
+            /* Evitar cortes feos en las páginas */
+            .entry, section { page-break-inside: avoid; }
         }
     </style>
 </head>
 <body>
-
-    <nav class="sidebar">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#perfil" class="nav-link">Perfil</a></li>
-            <li class="nav-item"><a href="#competencias" class="nav-link">Competencias</a></li>
-            <li class="nav-item"><a href="#toolkit" class="nav-link">Toolkit</a></li>
-            <li class="nav-item"><a href="#experiencia" class="nav-link">Profesional</a></li>
-            <li class="nav-item"><a href="#docencia" class="nav-link">Docencia</a></li>
-            <li class="nav-item"><a href="#formacion" class="nav-link">Formación</a></li>
-        </ul>
-    </nav>
     
     <main>
         
@@ -447,18 +380,20 @@
                 
                 <div class="contact-links">
                     <a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn</a>
-                    <a href="https://www.behance.net/yyyi" target="_blank">Portafolio</a>
+                    <a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn: /yyyi</a>
+                    <a href="https://www.behance.net/yyyi" target="_blank">Portafolio: Behance</a>
                     <a href="https://yyyi-creativa.github.io/exploracion_IA/" target="_blank">Exploración IA</a>
                 </div>
 
-                <nav class="mobile-nav">
-                    <a href="#perfil">Perfil</a>
-                    <a href="#competencias">Skills</a>
-                    <a href="#experiencia">Experiencia</a>
-                    <a href="#docencia">Docencia</a>
-                    <a href="#formacion">Formación</a>
-
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="#perfil" class="nav-link">Perfil</a></li>
+                        <li><a href="#competencias" class="nav-link">Skills</a></li>
+                        <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
+                        <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                        <li><a href="#docencia" class="nav-link">Docencia</a></li>
+                        <li><a href="#formacion" class="nav-link">Formación</a></li>
+                    </ul>
                 </nav>
 
             </div>
@@ -721,20 +656,16 @@
             <div class="ai-credit">
                 Sitio desarrollado x Yi con asistencia de IA. 2026
             </div>
-
-            
         </footer>
 
     </main>
-
     
     <button onclick="topFunction()" id="scrollTopBtn" title="Volver al inicio" aria-label="Volver arriba">
         <span class="arrow-up"></span>
     </button>
 
     <script>
-        // --- 1. LÓGICA DE BARRA SUPERIOR (ACTIVE STATE) ---
-        // Detecta qué sección está visible y marca el link correspondiente
+        // Lógica actualizada para los nuevos enlaces en el header
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -743,8 +674,6 @@
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // El -150 ayuda a que el cambio sea visualmente agradable al ojo humano
                 if (scrollY >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
@@ -757,11 +686,10 @@
                 }
             });
             
-            // Llamamos también a la función del botón
             scrollFunction(); 
         });
 
-        // --- 2. BOTÓN VOLVER ARRIBA ---
+        // BOTÓN VOLVER ARRIBA
         let mybutton = document.getElementById("scrollTopBtn");
 
         function scrollFunction() {
@@ -773,11 +701,9 @@
         }
 
         function topFunction() {
-            document.body.scrollTop = 0; // Para Safari
-            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
         }
     </script>
-
-    
 </body>
 </html>
